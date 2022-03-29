@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        bubles {
+            border-radius: 100%;
+            position: fixed;
+            pointer-events: none;
+            background: #20e3a2;
+            box-shadow: 10px 10px 30px #31c8a2, -10px -10px 30px #31c8a2;
+            transform: translate(-50%, -50%);
+            animation: colorgen 1s infinite;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        document.addEventListener('mousemove', e => {
+
+            let bubles = document.createElement('bubles');
+            let x = e.pageX;
+            let y = e.pageY;
+            bubles.style.left = x + "px";
+            bubles.style.top = y + "px";
+            let size = Math.random() * 50;
+            bubles.style.width = 1 + size + "px";
+            bubles.style.height = 1 + size + "px";
+
+            document.body.appendChild(bubles);
+            setTimeout(function () {
+                bubles.remove();
+            }, 1100);
+        });
+    </script>
+
+</body>
+
+</html>
